@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Imágenes - Portafolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <div class="modal" id="imageModal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImg">
+</div>
+
+    <style>
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+}
+
+.modal-content {
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 15px;
+}
+
+.close {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+        
+        body {
+            font-family: 'Comfortaa', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e7e7e8;
+            color: #306d93;
+            line-height: 1.6;
+        }
+
+header {
+    background-color: #306d93;
+    color: #e7e7e8;
+    padding: 6px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 90%;
+    max-width: 1100px;
+
+    border-radius: 40px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+
+    transition: all 0.4s ease;
+}
+
+header.shrink {
+    width: 70px !important;
+    height: 70px;
+    padding: 0;
+    border-radius: 50%;
+    left: 20px;
+    transform: none;
+
+    display: flex;
+    align-items: center;      /* ✅ centra vertical */
+    justify-content: center;  /* ✅ centra horizontal */
+}
+
+/* Logo perfectamente centrado */
+header.shrink .GP {
+    width: 38px;
+    height: auto;
+    margin: 0;
+    display: block;
+}
+header.shrink a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* OCULTAR TEXTO CUANDO ES BOLITA */
+header.shrink nav {
+    display: none;
+}
+
+header.shrink .logo {
+    margin: 0;
+}
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+         .GP{width: 45px;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: #e7e7e8;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #306d93;
+            background-color: #e7e7e8;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+            
+        }
+       .section1 {
+    font-size: 25px;
+    margin-bottom: 10px;
+    margin-top: 140px;
+    text-align: center;
+    color: #ffffff;
+
+    background-image: linear-gradient(rgba(48,109,147,0.6), rgba(48,109,147,0.6)), 
+                      url("imagenes/gif.gif"); /* CAMBIA por tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 20px;
+    border-radius: 0px;
+}
+        .fixed-photos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+             justify-items: center;
+        }
+        .fixed-photos img {
+    width: 220px;   /* tamaño más pequeño */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+        .fixed-photos img:hover {
+            transform: scale(1.05);
+        }
+        .carousel {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+.carousel {
+    max-width: 450px;
+    margin: 0 auto;
+    border-radius: 15px;
+}
+
+.carousel img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(48, 109, 147, 0.8);
+            color: #e7e7e8;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 50%;
+            z-index: 10;
+        }
+        .carousel-btn:hover {
+            background-color: #306d93;
+        }
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+        footer {
+            background-color: #306d93;
+            color: #e7e7e8;
+            text-align: center;
+            padding: 20px;
+        }
+        .social-links {
+            margin-bottom: 20px;
+        }
+        .social-links a {
+            color: #e7e7e8;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .social-links a:hover {
+            color: #e7e7e8;
+            background-color: #306d93;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .footer-links a {
+            color: #e7e7e8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav ul {
+                margin-top: 10px;
+            }
+            .fixed-photos {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        
+        <div class="logo">
+    <a href="index.html">
+        <img class="GP" src="imagenes/LOGO BLA.png" alt="Inicio - GraphikStudio">
+    </a>
+</div>
+        <nav>
+            <ul>
+                <li><a href="http://127.0.0.1:5500/index.html">Inicio</a></li>
+                <li><a href="Contacto.html">Sobre mí</a></li>
+                <li><a href="imagenes/CV.pdf">CV</a></li>
+                <li><a href="https://www.behance.net/kassandratamez1" target="_blank">Behance</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="section1">
+        
+        <h1>Todos los dias todo el día</h1>
+        <p>Explora mis fotos usadas en el album inspirado en Latin Mafia.</p>
+    </section>
+
+    <section class="section">
+        <h2></h2>
+        <div class="fixed-photos">
+            <img src="imagenes/1.JPG" alt="Foto 1">
+            <img src="imagenes/2.JPG" alt="Foto 2">
+            <img src="imagenes/3.JPG" alt="Foto 3">
+            <img src="imagenes/4.JPG" alt="Foto 4">
+            <img src="imagenes/5.JPG" alt="Foto 5">
+            <img src="imagenes/6.JPG" alt="Foto 6">
+            <img src="imagenes/11.JPG" alt="Foto 7">
+            <img src="imagenes/13.JPG" alt="Foto 8">
+        </div>
+    </section>
+
+    <section class="section">
+        <h2></h2>
+        <div class="carousel">
+            <div class="carousel-container" id="carousel-container">
+                <img src="imagenes/7.JPG" alt="Imagen 1">
+                <img src="imagenes/8.JPG" alt="Imagen 2">
+                <img src="imagenes/9.JPG" alt="Imagen 3">
+                <img src="imagenes/10.JPG" alt="Imagen 4">
+                <img src="imagenes/14.JPG" alt="Imagen 5">
+            </div>
+            <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
+            <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
+        </div>
+    </section>
+
+     <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/grapik_studio/" target="_blank">Instagram</a>
+        </div>
+     
+            
+        <p>&copy; 2025 GraphikStudio. Todos los derechos reservados.</p>
+    </footer>
+
+   <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* ======== CARRUSEL ======== */
+    let currentIndex = 0;
+    const container = document.getElementById('carousel-container');
+    const slides = document.querySelectorAll('.carousel-container img');
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+        container.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        showSlide(currentIndex);
+    }
+
+    window.nextSlide = nextSlide;
+    window.prevSlide = prevSlide;
+
+    setInterval(nextSlide, 5000);
+
+
+    /* ======== MODAL IMAGEN GRANDE ======== */
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const closeBtn = document.querySelector(".close");
+
+    document.querySelectorAll(".fixed-photos img, .carousel img").forEach(img => {
+        img.addEventListener("click", () => {
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+        });
+    });
+
+    closeBtn.onclick = () => modal.style.display = "none";
+    modal.onclick = () => modal.style.display = "none";
+
+// HACER QUE EL GIF SE ABRA AL DAR CLICK
+const sectionInicio = document.querySelector(".section1");
+
+sectionInicio.addEventListener("click", () => {
+    modal.style.display = "flex";
+    modalImg.src = "imagenes/gif.gif";
+});
+
+// NAVBAR QUE SE CONTRAE
+const headerNav = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+        headerNav.classList.add("shrink");
+    } else {
+        headerNav.classList.remove("shrink");
+    }
+    
+});
+
+});
+</script>
+</body>
+</html>

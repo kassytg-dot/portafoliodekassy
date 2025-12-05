@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Identidad de Marca</title>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+    font-family:'Comfortaa',sans-serif;
+    margin:0;
+    background:#e7e7e8;
+    color:#306d93;
+}
+
+/* HEADER FLOTANTE */
+header{
+    background:#306d93;
+    color:#e7e7e8;
+    padding:15px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:90%;
+    max-width:1100px;
+    border-radius:40px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    backdrop-filter:blur(6px);
+    z-index:1000;
+    transition:all 0.4s ease;
+}
+
+/* HEADER BOLITA */
+header.shrink{
+    width:70px;
+    height:70px;
+    padding:0;
+    border-radius:50%;
+    left:20px;
+    transform:none;
+    justify-content:center;
+}
+
+header.shrink nav{display:none;}
+
+.logo img{
+    width:45px;
+}
+
+/* NAV */
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:20px;
+    padding:0;
+    margin:0;
+}
+
+nav a{
+    color:#e7e7e8;
+    text-decoration:none;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav a:hover{
+    background:#e7e7e8;
+    color:#306d93;
+    padding:5px 10px;
+    border-radius:20px;
+}
+
+/* SECCIÓN IDENTIDAD */
+.brand-section{
+    margin:140px auto 30px;
+    max-width:1100px;
+    background:white;
+    border-radius:40px;
+    padding:40px;
+    display:flex;
+    gap:40px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.brand-logo img{
+    max-width:300px;
+}
+
+.color-palette{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+.color-sample{
+    width:50px;
+    height:50px;
+    border-radius:10px;
+}
+
+/* SECCIÓN MOCKUPS */
+.mockups-section{
+    max-width:1100px;
+    margin:0 auto 80px;
+    background:white;
+    border-radius:40px;
+    padding:40px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.mockups-section h2{
+    margin-bottom:20px;
+}
+
+.mockups-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:30px;
+    justify-items:center;
+}
+
+.mockup-box{
+    width:100%;
+    max-width:480px;
+    height:280px;
+    background:white;
+    border-radius:25px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#306d93;
+    font-size:14px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.08);
+    padding:15px;
+    transition:0.3s;
+}
+
+.mockup-box:hover{
+    background:#e7e7e8;
+}
+
+.mockup-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;  /* Ajusta la imagen al cuadro sin deformarla */
+    object-position: center;
+}
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.5);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content{
+    background:#fff;
+    padding:30px;
+    border-radius:20px;
+    width:90%;
+    max-width:400px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.modal-content input,
+.modal-content textarea{
+    padding:10px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-family:'Comfortaa',sans-serif;
+}
+
+.modal-content button{
+    background:#306d93;
+    color:white;
+    border:none;
+    padding:10px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+    background:#306d93;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">
+    <a href="index.html"><img src="imagenes/LOGO BLA.png" alt="Logo"></a>
+</div>
+<nav>
+<ul>
+                <li><a href="http://127.0.0.1:5500/index.html">Inicio</a></li>
+                <li><a href="Contacto.html">Sobre mí</a></li>
+                <li><a href="imagenes/CV.pdf">CV</a></li>
+                <li><a href="https://www.behance.net/kassandratamez1" target="_blank">Behance</a></li>
+            </ul>
+</nav>
+</header>
+
+<section class="brand-section">
+<div class="brand-logo">
+<img src="imagenes/ACADEMIAC.png" alt="Identidad de Marca">
+</div>
+
+<div class="brand-details">
+<h1>SOULHYANG HAGWON</h1>
+<p>Esta identidad fue desarrollada para transmitir modernidad, creatividad y coherencia visual, reforzando el reconocimiento y la presencia de la marca en medios digitales e impresos.</p>
+
+<p><strong>Elementos:</strong> Logotipo, paleta cromática, aplicaciones gráficas.</p>
+<p><strong>Tipografía:</strong> Lemon Milk</p>
+
+<div class="color-palette">
+<div class="color-sample" style="background:#002e6d"></div>
+<div class="color-sample" style="background:#000000"></div>
+<div class="color-sample" style="background:#ea0029"></div>
+</div>
+</div>
+</section>
+
+<!-- SECCIÓN DE MOCKUPS -->
+<section class="mockups-section">
+<h2>Aplicaciones / Mockups</h2>
+
+<div class="mockups-grid">
+  
+<div class="mockup-box">
+   <img src="imagenes/libreta.png">
+   </div>
+<div class="mockup-box">
+   <img src="imagenes/sello.png">
+</div>
+<div class="mockup-box">
+   <img src="imagenes/taza.png">
+   </div>
+
+<div class="mockup-box">
+   <img src="imagenes/totebag.png">
+</div>
+<!-- EJEMPLO CON IMAGEN -->
+<!--
+<div class="mockup-box">
+    <img src="imagenes/mockup1.jpg" alt="Mockup">
+</div>
+-->
+
+</div>
+</section>
+
+<!-- MODAL -->
+<div id="contactModal" class="modal">
+<div class="modal-content">
+<h2>Contacto</h2>
+<input type="text" placeholder="Nombre">
+<input type="email" placeholder="Correo">
+<textarea placeholder="Mensaje"></textarea>
+<button onclick="closeModal()">Enviar</button>
+</div>
+</div>
+
+<footer>
+<p>&copy; 2025 GraphikStudio</p>
+</footer>
+
+<script>
+// HEADER CONTRÁCTIL
+const headerNav = document.querySelector("header");
+window.addEventListener("scroll",()=>{
+    if(window.scrollY>100){
+        headerNav.classList.add("shrink");
+    }else{
+        headerNav.classList.remove("shrink");
+    }
+});
+
+// MODAL
+function openModal(){
+    document.getElementById("contactModal").style.display="flex";
+}
+
+function closeModal(){
+    document.getElementById("contactModal").style.display="none";
+}
+</script>
+
+</body>
+</html>
